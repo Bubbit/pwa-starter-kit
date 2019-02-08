@@ -1,16 +1,30 @@
 {
-  "suites": ["test/unit"],
+  "suites": [
+    "test/unit"
+  ],
   "plugins": {
+    "istanbub": {
+      "npm": true,
+      "reporters": [
+        "text-summary",
+        "lcov"
+      ],
+      "include": [
+        "**/*.html",
+        "**/*.js"
+      ],
+      "exclude": [
+        "**/test/**",
+        "**/node_modules/!(lit-html)/**",
+        "src/actions/counter.js",
+        "src/actions/app.js",
+        "src/components/my-app.js"
+      ]
+    },
     "local": {
-      "browserOptions": {
-        "chrome": [
-          "headless",
-          "disable-gpu"
-        ],
-        "firefox": [
-          "-headless"
-        ]
-      }
+      "browsers": [
+        "chrome"
+      ]
     }
   }
 }
